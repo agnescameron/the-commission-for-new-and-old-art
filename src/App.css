@@ -32,12 +32,20 @@ body {
 	width: 800px;
 }
 
+.aboutContainer {
+	margin: 20px;
+	width: 600px;
+}
+
 .pageContainer img {
 	height: 300px;
 }
 
 footer {
 	position: fixed;
-	bottom: 30px;
+	bottom: 20.5px;
 	left: 40px;
+	background-color: black;
+	box-shadow: -2px -10px 20px 0 black;
+	width: 80%;
 }

@@ -10,7 +10,7 @@ export default function About({isLoading, pages}){
 	return (
 		<div>
 		{ isLoading ? 'loading' :
-      	<div className='pageContainer'>
+      	<div className='aboutContainer'>
 			<h1>About the Commission</h1>
 				<ReactMarkdown>
 					{ aboutText }

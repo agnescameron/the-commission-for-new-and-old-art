@@ -20,6 +20,8 @@ export default function Event({isLoading, events}){
 		 			{event.fields['Images'] && <img src={event.fields['Images'][0].url} />}
 		 			<h1>{event.fields['Name']}</h1> 
 		 			<h2>{event.fields['Date']} // {event.fields['Location']}</h2>
+		 			<p><b>featuring:</b></p>
+		 			<p>{event.fields['Performers']}</p>
 		 		</div>
 		 		}
 	 		</div>
