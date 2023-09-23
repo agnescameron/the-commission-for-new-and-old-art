@@ -26,3 +26,18 @@ body {
 .header > h2 {
 	text-align: center;
 }
+
+.pageContainer {
+	margin: 20px;
+	width: 800px;
+}
+
+.pageContainer img {
+	height: 300px;
+}
+
+footer {
+	position: fixed;
+	bottom: 30px;
+	left: 40px;
+}

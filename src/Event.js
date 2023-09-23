@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
+import Footer from './components/Footer';
 
 export default function Event({isLoading, events}){
 
@@ -13,10 +14,17 @@ export default function Event({isLoading, events}){
 	return (
 		<div>
 	 		{ isLoading ? 'loading' : 
-	 		<div>
-
+	 		<div className='pageContainer'>
+	 		{ event && 
+		 		<div>
+		 			{event.fields['Images'] && <img src={event.fields['Images'][0].url} />}
+		 			<h1>{event.fields['Name']}</h1> 
+		 			<h2>{event.fields['Date']} // {event.fields['Location']}</h2>
+		 		</div>
+		 		}
 	 		</div>
 			}
+		<Footer />
 		</div>
 	)
 }

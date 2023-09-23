@@ -9,6 +9,7 @@ import News from './News';
 import List from './List';
 import Event from './Event';
 import Contact from './Contact';
+import About from './About';
 import Item from './components/Item';
 import Header from './components/Header';
 // import Home from './Home';
@@ -72,6 +73,7 @@ function App() {
 					{/*<Header />*/}
 					<Routes>
 						<Route exact path="/" element={<Home isLoading={isLoading} pages={pages} events={events}/>}/>
+						<Route exact path="/about" element={<About isLoading={isLoading} pages={pages}/>}/>
 						<Route exact path="/archive" element={<List isLoading={isLoading} events={pastEvents}/>}/>
 						<Route exact path="/calendar" element={<List isLoading={isLoading} events={upcomingEvents}/>}/>
 						<Route exact path="/contact" element={<Contact isLoading={isLoading}/>}/>
