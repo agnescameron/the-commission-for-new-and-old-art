@@ -1,14 +1,19 @@
 .content {
-	max-width: 600px;
-	min-width: 60vw;
-	padding: 10px;
-	height: 95vh;
+	width: calc(100vw - 40px);
+	height: calc(100vh - 40px);
+	margin-top: 20px;
+	margin-left: 20px;
+	border: 1px solid white;
+/*	padding: 10px;*/
+overflow-x: hidden;
 }
 
 body {
 	font-family: Helvetica;
 	color: white;
 	background-color: black;
+	margin: 0 !important;
+	width: 100vw;
 }
 
 .header {
