@@ -69,7 +69,7 @@ function App() {
 					<meta name="keywords" content="commission manchester vienna new york" />
 				</Helmet>
 				<div className="content">
-					<Header />
+					{/*<Header />*/}
 					<Routes>
 						<Route exact path="/" element={<Home isLoading={isLoading} pages={pages} events={events}/>}/>
 						<Route exact path="/archive" element={<List isLoading={isLoading} events={pastEvents}/>}/>
