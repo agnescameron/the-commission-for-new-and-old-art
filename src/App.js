@@ -4,8 +4,9 @@ import { Helmet } from 'react-helmet';
 import dotenv from 'dotenv'; 
 import './App.css';
 import Home from './Home';
-import Archive from './Archive';
+// import Archive from './Archive';
 import News from './News';
+import List from './List';
 import Event from './Event';
 import Contact from './Contact';
 import Item from './components/Item';
@@ -31,6 +32,9 @@ function App() {
 	});
 
 	const base = Airtable.base(airtable_base);
+	const upcomingEvents = events.length > 0 ? events.filter(el => Date.parse(el.fields['Date']) >= new Date()) : []
+	const pastEvents = events.length > 0 ? events.filter(el => Date.parse(el.fields['Date']) < new Date()) : []
+
 
 	//get pages first
 	useEffect(()=>{
@@ -65,9 +69,11 @@ function App() {
 					<meta name="keywords" content="commission manchester vienna new york" />
 				</Helmet>
 				<div className="content">
+					<Header />
 					<Routes>
 						<Route exact path="/" element={<Home isLoading={isLoading} pages={pages} events={events}/>}/>
-						<Route exact path="/archive" element={<Archive isLoading={isLoading}/>}/>
+						<Route exact path="/archive" element={<List isLoading={isLoading} events={pastEvents}/>}/>
+						<Route exact path="/calendar" element={<List isLoading={isLoading} events={upcomingEvents}/>}/>
 						<Route exact path="/contact" element={<Contact isLoading={isLoading}/>}/>
 						<Route exact path="/recent" element={<News isLoading={isLoading}/>}/>
 						<Route path="/:id" element={<Event isLoading={isLoading} events={events}/>}/>

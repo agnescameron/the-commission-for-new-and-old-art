@@ -9,6 +9,7 @@
     "airtable": "^0.11.6",
     "dotenv": "^16.0.3",
     "react": "^18.2.0",
+    "react-clock": "^4.5.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-markdown": "^8.0.5",

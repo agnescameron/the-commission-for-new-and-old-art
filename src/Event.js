@@ -14,15 +14,7 @@ export default function Event({isLoading, events}){
 		<div>
 	 		{ isLoading ? 'loading' : 
 	 		<div>
-	 			{ event && 
-	 			<div>
-	 				<h1>{ event.fields['Name'] }</h1>
-	 				<h2>Credits:</h2>
-	 				<ReactMarkdown>{ event.fields['Credits'] }</ReactMarkdown>
-	 				<h2>About:</h2>
-	 				<ReactMarkdown>{ event.fields['Description'] }</ReactMarkdown>
-	 			</div>
-	 			}
+
 	 		</div>
 			}
 		</div>
