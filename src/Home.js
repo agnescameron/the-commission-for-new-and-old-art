@@ -44,27 +44,30 @@ export default function Home({isLoading, pages, events, dimensions}){
 		<div>
 	 		{ isLoading ? 'loading' : 
 	 		<div>
-
-      		{ dimensions.height > 850 &&
-
-      		<> 
+ 
 	      		<div className='clocks'>
 
 	      		<div>
 					<h2>Manchester</h2>
 	      			<Clock value={timeManc} /> 
 	      		</div>
+	         { dimensions.height > 700 &&
+	      		<>
 	      		<div>
 	      			<h2>New York</h2>
 	      			<Clock value={timeNY} /> 
 	      		</div>
+	         { dimensions.height > 900 &&
+	      		<>
 	      		<div>
 					<h2>Vienna</h2>
 	      			<Clock value={timeVienna} />
-	      			</div>
 	      		</div>
-		 	</>
-		 	}
+	      		</>
+	      	}
+	      		</>
+	      	}
+	      		</div>
 	      		<div className="homeText">
 				<h1>The Commission for New and Old Art</h1>
 					<p>
