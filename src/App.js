@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import dotenv from 'dotenv'; 
@@ -22,6 +22,9 @@ const airtable_base = process.env.REACT_APP_AIRTABLE_BASE;
 
 function App() {
 
+	const [title, setTitle] = useState('The Commission for New and Old Art * ');
+	const titleRef = useRef(title);
+	titleRef.current = title;
 	const [events, setEvents] = useState([]);
 	const [pages, setPages] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +39,13 @@ function App() {
 	const upcomingEvents = events.length > 0 ? events.filter(el => Date.parse(el.fields['Date']) >= new Date()) : []
 	const pastEvents = events.length > 0 ? events.filter(el => Date.parse(el.fields['Date']) < new Date()) : []
 
+
+	const changeTitle = () => {
+		document.title = titleRef.current;
+		const newTitle = titleRef.current.substr(1) + titleRef.current.substr(0, 1)
+		console.log(newTitle)
+		setTitle(newTitle);
+	}
 
 	//get pages first
 	useEffect(()=>{
@@ -61,11 +71,19 @@ function App() {
 			});
 	},[])
 
+
+	//scroll title text
+	useEffect(() => {
+		const titleInterval = setInterval(() => changeTitle(), 100); 
+		return () => {
+			clearInterval(titleInterval);
+		};
+	}, []);
+
 	return (
 		<div className="App">
 			<Router>
 				<Helmet>
-					<title>COMMISSION FOR NEW AND OLD ART</title>
 					<meta name="description" content="the Commission for New and Old Art" />
 					<meta name="keywords" content="commission manchester vienna new york" />
 				</Helmet>
@@ -74,8 +92,8 @@ function App() {
 					<Routes>
 						<Route exact path="/" element={<Home isLoading={isLoading} pages={pages} events={events}/>}/>
 						<Route exact path="/about" element={<About isLoading={isLoading} pages={pages}/>}/>
-						<Route exact path="/archive" element={<List isLoading={isLoading} events={pastEvents}/>}/>
-						<Route exact path="/calendar" element={<List isLoading={isLoading} events={upcomingEvents}/>}/>
+						<Route exact path="/archive" element={<List isLoading={isLoading} events={pastEvents} title="Archive"/>}/>
+						<Route exact path="/calendar" element={<List isLoading={isLoading} events={upcomingEvents} title="Almanac"/>}/>
 						<Route exact path="/contact" element={<Contact isLoading={isLoading}/>}/>
 						<Route exact path="/recent" element={<News isLoading={isLoading}/>}/>
 						<Route path="/:id" element={<Event isLoading={isLoading} events={events}/>}/>

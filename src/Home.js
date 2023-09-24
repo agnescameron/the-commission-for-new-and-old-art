@@ -64,11 +64,11 @@ export default function Home({isLoading, pages, events}){
       		<div className="homeText">
 			<h1>The Commission for New and Old Art</h1>
 				<p>
-					<i>{ homeText }</i>
+					<i><Link to="https://c2bd3675.sibforms.com/serve/MUIFAJvfkE6fRqQ-NRa08DTvJRGHirQpaaeF7ltFfs2xZXjTzXeRMI0jV509AXrm_ffO-jXvA-BKaw3Rgln7K_D-U5QygExNiEvK3Ni5tbxpB4N_Eqt_lx5kDX41CD9aW2NawMo9R1zcg7AG3FetF2XZbsQjRyxUjX35s7tDn_NwyvrEb-1Mx8owj9ufHf1n-EFEVGg_hZwdyhIV">{ homeText }</Link></i>
 				</p>
-				<h2><Link to='/calendar'> ↘ Calendar</Link></h2>
-				<h2><Link to='/archive'> ↘ Archive</Link></h2>
-				<h2><Link to='/about'> ↘ About</Link></h2>
+				<h2><Link to='/calendar'> ↘&#xFE0E; Calendar</Link></h2>
+				<h2><Link to='/archive'> ↘&#xFE0E; Archive</Link></h2>
+				<h2><Link to='/about'> ↘&#xFE0E; About</Link></h2>
 	 		</div>
 	 		</div>
 			}

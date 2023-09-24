@@ -38,7 +38,7 @@ function daysInMonth (month, year) {
     return new Date(parseInt(year), parseInt(month) + 1, 0).getDate();
 }
 
-export default function List({isLoading, events}){
+export default function List({isLoading, events, title}){
 
 	// const [dates, setDates] = React.useState([])
 	const [dates, setDates] = React.useState([])
@@ -66,7 +66,7 @@ export default function List({isLoading, events}){
 		<div>
 	 		{ isLoading ? 'loading' : 
 	 		<div className='pageContainer'>
-	 		<h1>Almanac</h1>
+	 		<h1>{title}</h1>
 	 			{ dates.length > 0 && dates.map( (month) => {
 	 					const monthEvents = getEventsInMonth(month, events)
 	 					const monthDates = monthEvents.map(event => event.fields["Date"])
@@ -79,7 +79,7 @@ export default function List({isLoading, events}){
 						 			const dateEvent = getEventOnDate(i+1, monthEvents)
 						 			return  dateEvent !== null ? 
 						 			<div className="eventElement" key={i}>
-						 				<p className="eventTitle"><Link to={"/" + dateEvent.id}>{ (i+1) + " ⇍ " + dateEvent.fields['Name'] }</Link></p>
+						 				<p className="eventTitle"><Link to={"/" + dateEvent.id}>{ (i+1) + ` ⇍ ` + dateEvent.fields['Name'] }</Link></p>
 						 			</div> :
 						 			<div className="calElement" key={i}><p>{i+1}</p></div>}
 						 			)}
