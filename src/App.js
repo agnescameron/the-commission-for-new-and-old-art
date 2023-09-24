@@ -20,8 +20,16 @@ dotenv.config()
 const process_api_key = process.env.REACT_APP_AIRTABLE_API_KEY;
 const airtable_base = process.env.REACT_APP_AIRTABLE_BASE;
 
-function App() {
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
 
+function App() {
+  	const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 	const [title, setTitle] = useState('The Commission for New and Old Art * ');
 	const titleRef = useRef(title);
 	titleRef.current = title;
@@ -79,6 +87,16 @@ function App() {
 		};
 	}, []);
 
+	//get window dimensions
+	useEffect(() => {
+		function handleResize() {
+		 	setWindowDimensions(getWindowDimensions());
+		}
+
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
 	return (
 		<div className="App">
 			<Router>
@@ -89,7 +107,7 @@ function App() {
 				<div className="content">
 					{/*<Header />*/}
 					<Routes>
-						<Route exact path="/" element={<Home isLoading={isLoading} pages={pages} events={events}/>}/>
+						<Route exact path="/" element={<Home isLoading={isLoading} pages={pages} events={events} dimensions={windowDimensions}/>}/>
 						<Route exact path="/about" element={<About isLoading={isLoading} pages={pages}/>}/>
 						<Route exact path="/archive" element={<List isLoading={isLoading} events={pastEvents} title="Archive"/>}/>
 						<Route exact path="/calendar" element={<List isLoading={isLoading} events={upcomingEvents} title="Almanac"/>}/>
