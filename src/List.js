@@ -34,13 +34,11 @@ function getEventOnDate(day, events) {
 
 
 function daysInMonth (month, year) {
-	console.log('month is', month, 'year is', year)
     return new Date(parseInt(year), parseInt(month) + 1, 0).getDate();
 }
 
 export default function List({isLoading, events, title}){
 
-	// const [dates, setDates] = React.useState([])
 	const [dates, setDates] = React.useState([])
 	const monthList = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
@@ -57,7 +55,6 @@ export default function List({isLoading, events, title}){
 		})
 
 		tempDates = tempDates.filter(onlyUnique)
-		console.log('dates is', tempDates, 'events is', events)
 		setDates(tempDates)
 
 	}, [events])
