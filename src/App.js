@@ -43,7 +43,6 @@ function App() {
 	const changeTitle = () => {
 		document.title = titleRef.current;
 		const newTitle = titleRef.current.substr(1) + titleRef.current.substr(0, 1)
-		console.log(newTitle)
 		setTitle(newTitle);
 	}
 

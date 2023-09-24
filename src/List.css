@@ -33,3 +33,37 @@
 	font-weight: bold;
 	font-size: 1.2em;
 }
+
+
+@media only screen and (max-width: 767px) {
+	.pageContainer > div {
+		width: 100%;
+	}
+
+
+	.cal {
+		min-width: 300px;
+		width: 100% !important;
+	}
+
+	.calElement {
+	width: 50px;
+	height: 40px;
+	outline: 1px solid white;
+}
+
+.eventElement {
+	height: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid white;
+	display: flex;
+}
+
+.eventTitle {
+	padding-top: 7px;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+}
