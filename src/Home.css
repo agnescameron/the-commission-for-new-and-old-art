@@ -1,5 +1,5 @@
 .clocks {
-  width: 100vw;
+  width: calc(100vw - 40px);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -52,10 +52,92 @@ a {
   }
 
   .react-clock {
-    margin-left: calc(50% - 40px);
-    width: 80px !important;
-    height: 80px !important;
+    margin-left: calc(50% - 6vh);
+    width: 12vh !important;
+    height: 12vh !important;
 }
+
+  .aboutContainer {
+    width: 90%;
+  }
+
+  .homeText {
+    position: fixed;
+    bottom: 10px;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-height: 800px) and (max-width: 767px) {
+  .clocks {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .clocks > div {
+    width: 100%;
+  }
+
+  .clocks h2 {
+    font-size: 1.3em;
+  }
+
+  .react-clock {
+    margin-left: calc(50% - 5vh);
+    width: 10vh !important;
+    height: 10vh !important;
+}
+
+  .aboutContainer {
+    width: 90%;
+  }
+
+  .homeText {
+    position: fixed;
+    bottom: 10px;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-height: 760px) and (max-width: 767px) {
+  .clocks {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .clocks > div {
+    width: 100%;
+  }
+
+  .clocks h2 {
+    font-size: 1.3em;
+  }
+
+  .react-clock {
+    margin-left: calc(50% - 4vh);
+    width: 8vh !important;
+    height: 8vh !important;
+}
+
+  .aboutContainer {
+    width: 90%;
+  }
+
+  .homeText {
+    position: fixed;
+    bottom: 10px;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  .clocks {
+    display: none;
+  }
 
   .aboutContainer {
     width: 90%;

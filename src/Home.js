@@ -42,32 +42,23 @@ export default function Home({isLoading, pages, events, dimensions}){
 	return (
 
 		<div>
-	 		{ isLoading ? 'loading' : 
+	 		{ isLoading ? 'loading' :
 	 		<div>
- 
-	      		<div className='clocks'>
+		      	<div className='clocks'>
 
-	      		<div>
-					<h2>Manchester</h2>
-	      			<Clock value={timeManc} /> 
-	      		</div>
-	         { dimensions.height > 700 &&
-	      		<>
-	      		<div>
-	      			<h2>New York</h2>
-	      			<Clock value={timeNY} /> 
-	      		</div>
-	         { dimensions.height > 900 &&
-	      		<>
-	      		<div>
-					<h2>Vienna</h2>
-	      			<Clock value={timeVienna} />
-	      		</div>
-	      		</>
-	      	}
-	      		</>
-	      	}
-	      		</div>
+		      		<div>
+						<h2>Manchester</h2>
+		      			<Clock value={timeManc} /> 
+		      		</div>
+		      		<div>
+		      			<h2>New York</h2>
+		      			<Clock value={timeNY} /> 
+		      		</div>
+		      		<div>
+						<h2>Vienna</h2>
+		      			<Clock value={timeVienna} />
+		      		</div>
+		      	</div>
 	      		<div className="homeText">
 				<h1>The Commission for New and Old Art</h1>
 					<p>
