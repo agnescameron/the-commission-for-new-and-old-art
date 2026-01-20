@@ -64,26 +64,26 @@ export default function List({isLoading, events, title}){
 	 		{ isLoading ? 'loading' : 
 	 		<div className='pageContainer'>
 	 		<h1>{title}</h1>
-	 			{ dates.length > 0 && dates.map( (month) => {
-	 					const monthEvents = getEventsInMonth(month, events)
-	 					const monthDates = monthEvents.map(event => event.fields["Date"])
-	 					const numDays = daysInMonth(month.substring(0, month.length - 5), month.substring(month.length-4, month.length))
+	 			{ dates.length > 0 ? 
+	 				dates.map( (month) => {
+ 					const monthEvents = getEventsInMonth(month, events)
+ 					const monthDates = monthEvents.map(event => event.fields["Date"])
+ 					const numDays = daysInMonth(month.substring(0, month.length - 5), month.substring(month.length-4, month.length))
 
-			 			return <div>
-				 			<h2>{ monthList[month.substring(0, month.length - 5)] + ' ' + month.substring(month.length-4, month.length) }</h2>
-				 			<div className='cal'>
-				 				{[...Array(numDays)].map((e, i) => {
-						 			const dateEvent = getEventOnDate(i+1, monthEvents)
-						 			return  dateEvent !== null ? 
-						 			<div className="eventElement" key={i}>
-						 				<p className="eventTitle"><Link to={"/" + dateEvent.id}>{ (i+1) + ` ⇍ ` + dateEvent.fields['Name'] }</Link></p>
-						 			</div> :
-						 			<div className="calElement" key={i}><p>{i+1}</p></div>}
-						 			)}
-						 			</div>
-				 			</div>
-			 		// })
-	 			})
+		 			return <div>
+			 			<h2>{ monthList[month.substring(0, month.length - 5)] + ' ' + month.substring(month.length-4, month.length) }</h2>
+			 			<div className='cal'>
+			 				{[...Array(numDays)].map((e, i) => {
+					 			const dateEvent = getEventOnDate(i+1, monthEvents)
+					 			return  dateEvent !== null ? 
+					 			<div className="eventElement" key={i}>
+					 				<p className="eventTitle"><Link to={"/" + dateEvent.id}>{ (i+1) + ` ⇍ ` + dateEvent.fields['Name'] }</Link></p>
+					 			</div> :
+					 			<div className="calElement" key={i}><p>{i+1}</p></div>}
+					 			)}
+					 			</div>
+			 			</div>
+	 				}) : <div>no upcoming dates</div>
 	 			}
 	 		</div>
 			}
