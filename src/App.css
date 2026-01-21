@@ -1,10 +1,19 @@
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100dvh;
+}
+
 .content {
 	width: calc(100vw - 40px);
-	height: calc(100vh - 40px);
+	height: calc(100dvh - 40px);
 	margin-top: 20px;
 	margin-left: 20px;
 	border: 1px solid white;
-/*	padding: 10px;*/
 	overflow-x: hidden;
 }
 
@@ -66,8 +75,10 @@ footer {
 		max-width: 80%;
 	}
 
+	h1 {
+		font-size: 1.8em;
+	}
+	h2 {
+		font-size: 1.4em;
+	}
 }
-/*
-h1 {
-	font-size: 2.5em;
-}*/
