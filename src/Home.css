@@ -1,9 +1,20 @@
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 .clocks {
   width: calc(100vw - 40px);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: calc(50vh - 280px);
+  margin-top: calc(50dvh - 280px);
 }
 
 .clocks h2 {
@@ -52,9 +63,9 @@ a {
   }
 
   .react-clock {
-    margin-left: calc(50% - 6vh);
-    width: 12vh !important;
-    height: 12vh !important;
+    margin-left: calc(50% - 6dvh);
+    width: 12dvh !important;
+    height: 12dvh !important;
 }
 
   .aboutContainer {
@@ -63,7 +74,7 @@ a {
 
   .homeText {
     position: fixed;
-    bottom: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
     padding: 20px;
   }
 }
@@ -85,9 +96,9 @@ a {
   }
 
   .react-clock {
-    margin-left: calc(50% - 5vh);
-    width: 10vh !important;
-    height: 10vh !important;
+    margin-left: calc(50% - 5dvh);
+    width: 10dvh !important;
+    height: 10dvh !important;
 }
 
   .aboutContainer {
@@ -118,9 +129,9 @@ a {
   }
 
   .react-clock {
-    margin-left: calc(50% - 4vh);
-    width: 8vh !important;
-    height: 8vh !important;
+    margin-left: calc(50% - 4dvh);
+    width: 8dvh !important;
+    height: 8dvh !important;
 }
 
   .aboutContainer {
