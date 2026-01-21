@@ -83,7 +83,7 @@ export default function List({isLoading, events, title}){
 					 			)}
 					 			</div>
 			 			</div>
-	 				}) : <div>no upcoming dates</div>
+	 				}) : <h2>no upcoming dates</h2>
 	 			}
 	 		</div>
 			}
